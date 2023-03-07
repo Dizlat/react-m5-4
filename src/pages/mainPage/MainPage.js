@@ -5,7 +5,7 @@ import { addNumberAction, changeInputValueAction, clearNumberAction } from "../.
 export default function MainPage() {
     const dispatch = useDispatch()
 
-    const { inputValue, result } = useSelector( state => state )
+    const { inputValue, result, story } = useSelector( state => state )
     console.log(inputValue);
 
     const changeInput = ( e ) => {
@@ -21,6 +21,7 @@ export default function MainPage() {
         dispatch(clearNumberAction())
     }
 
+    console.log(story);
 
     return (
         <>
@@ -32,6 +33,10 @@ export default function MainPage() {
             <div>
                 <span>{ result }</span>
             </div>
+                story
+            <ul>
+                { story.map( num => <li>{num}</li>) }
+            </ul>
         </>
     )
 }
